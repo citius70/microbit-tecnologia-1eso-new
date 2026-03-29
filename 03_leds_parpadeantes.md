@@ -11,19 +11,22 @@ En este tutorial vamos a aprender a controlar el "rostro" de nuestra Micro:bit: 
 * Aprender la importancia de los **tiempos de espera (pausas)** en la programación.
 * Crear animaciones básicas usando el bucle **"para siempre"**.
 
-### 🛠️ Requisitos
-1. Una tarjeta **BBC Micro:bit**.
-2. Un cable **Micro-USB** para conectar al ordenador.
-3. Acceso al editor **MakeCode** (online o app).
+## 🛠️ Requisitos
+* Una tarjeta **BBC Micro:bit**.
+* Un cable **Micro-USB**.
+* Ordenador con acceso a [MakeCode](https://makecode.microbit.org/).
 
-### 🧠 Conceptos Clave
+## 🧠 Conceptos Clave: El Plano Cartesiano
 
-Para que nuestra Micro:bit haga lo que queremos, debemos entender cómo se organiza su pantalla:
-* **La Matriz LED:** Es una cuadrícula de **5x5**.
-* **Coordenadas:** Cada LED tiene una "dirección". El LED de arriba a la izquierda es el **(0, 0)**. 
-    * El eje **X** se mueve de izquierda a derecha (0 a 4).
-    * El eje **Y** se mueve de arriba abajo (0 a 4).
 * **El Bucle "Para siempre":** Es un ciclo que no termina. Todo lo que pongas dentro se repetirá hasta que apagues la placa.
+* **La Matriz LED:** Es una cuadrícula de **5x5**.
+
+Antes de programar, mira esta imagen. La pantalla de la Micro:bit es como un mapa de piratas con ejes X e Y:
+
+![Mapa de Coordenadas](imagenes/coordenadas.png)
+
+* **Eje X (Horizontal):** Va del 0 (izquierda) al 4 (derecha).
+* **Eje Y (Vertical):** Va del 0 (arriba) al 4 (abajo).
 
 ---
 
