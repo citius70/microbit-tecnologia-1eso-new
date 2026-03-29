@@ -11,12 +11,12 @@ En este tutorial vamos a aprender a controlar el "rostro" de nuestra Micro:bit: 
 * Aprender la importancia de los **tiempos de espera (pausas)** en la programación.
 * Crear animaciones básicas usando el bucle **"para siempre"**.
 
-## 🛠️ Requisitos
+### 🛠️ Requisitos
 * Una tarjeta **BBC Micro:bit**.
 * Un cable **Micro-USB**.
 * Ordenador con acceso a [MakeCode](https://makecode.microbit.org/).
 
-## 🧠 Conceptos Clave: El Plano Cartesiano
+### 🧠 Conceptos Clave: El Plano Cartesiano
 
 * **El Bucle "Para siempre":** Es un ciclo que no termina. Todo lo que pongas dentro se repetirá hasta que apagues la placa.
 * **La Matriz LED:** Es una cuadrícula de **5x5**.
