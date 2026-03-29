@@ -13,7 +13,8 @@
         "main.py",
         "01_primeros_pasos.md",
         "02_corazon_palpitante.md",
-        "03_leds_parpadeantes.md"
+        "03_leds_parpadeantes.md",
+        "04_botones.md"
     ],
     "testFiles": [
         "test.ts"
