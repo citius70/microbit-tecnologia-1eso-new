@@ -1,103 +1,80 @@
-# 💡 Luces en Acción: Dominando la Matriz LED
+# 🔘 Botones Sonrientes: Expresando Emociones
 
 ## El reto de hoy @unplugged
+¡Hola de nuevo, inventores\! Hoy vamos a darle "sentimientos" a nuestra Micro:bit. Aprenderemos a usar los botones físicos **A** y **B** para que la placa reaccione a nuestras pulsaciones con gestos y sonidos.
 
-¡Bienvenidos, inventores! 
+### 🎯 Objetivo
 
-En este tutorial vamos a aprender a controlar el "rostro" de nuestra Micro:bit: la **matriz de 25 LEDs**. Aprenderemos cómo hacer que un punto de luz cobre vida mediante el parpadeo y cómo usar coordenadas para dibujar expresiones.
+Programar los botones de la placa para que muestren una **cara feliz** 😀 o una **cara triste** 🙁 al interactuar con ellos.
 
-### 🎯 Objetivos de Aprendizaje
-* Entender el sistema de **coordenadas (X, Y)** de la Micro:bit.
-* Aprender la importancia de los **tiempos de espera (pausas)** en la programación.
-* Crear animaciones básicas usando el bucle **"para siempre"**.
+*(Asegúrate de tener este gif en tu carpeta de imagenes o usa la ruta de MakeCode)*
 
-### 🛠️ Requisitos
-* Una tarjeta **BBC Micro:bit**.
-* Un cable **Micro-USB**.
-* Ordenador con acceso a [MakeCode](https://makecode.microbit.org/).
+-----
 
-### 🧠 Conceptos Clave: El Plano Cartesiano
+### 🧠 Conceptos Clave: Eventos de Entrada
 
-* **El Bucle "Para siempre":** Es un ciclo que no termina. Todo lo que pongas dentro se repetirá hasta que apagues la placa.
-* **La Matriz LED:** Es una cuadrícula de **5x5**.
+En programación, presionar un botón ``|A|`` o ``|B|`` es un **Evento**. La Micro:bit se queda "escuchando" y, cuando detecta la pulsación, ejecuta las instrucciones que hayamos puesto dentro.
 
-Antes de programar, mira esta imagen. La pantalla de la Micro:bit es como un mapa de piratas con ejes X e Y:
+-----
 
-![Mapa de Coordenadas](imagenes/coordenadas.png)
+## 🚀 Paso 1: Botón A = Cara Alegre
 
-* **Eje X (Horizontal):** Va del 0 (izquierda) al 4 (derecha).
-* **Eje Y (Vertical):** Va del 0 (arriba) al 4 (abajo).
+Vamos a programar el botón izquierdo para que nuestra Micro:bit se ponga contenta.
 
----
+1.  Entra en la categoría **Entrada** y arrastra el bloque `||input:al presionar el botón A||`.
+2.  Dentro, coloca el bloque `||basic:mostrar icono||` y selecciona la **cara feliz**.
+3.  ¡Añadamos sonido\! Busca en **Música** el bloque `||music:play sound happy||`.
 
-## 🚀 Paso 1: Encender el primer LED
-
-Vamos a encender el LED de la esquina superior izquierda.
-
-1. Busca el bloque `||led:graficar x 0 y 0||` dentro de la categoría **LED**.
-2. Arrástralo dentro del bloque `||basic:para siempre||`.
-
-![Esquema de la Matriz LED](imagenes/coordenadas.png)
+<!-- end list -->
 
 ```blocks
-basic.forever(() => {
-    led.plot(0, 0)
-})
-```
-*¿Ves ese punto rojo en el simulador? ¡Ya has tomado el control del hardware!*
-
----
-
-## ⏱️ Paso 2: Crear el efecto de parpadeo
-
-Si solo encendemos el LED, se quedará prendido para siempre. Para que parpadee, necesitamos una secuencia: **Encender -> Esperar -> Apagar -> Esperar**.
-
-1. Añade un bloque `||basic:pausa (ms) 1000||` (1000 ms es igual a 1 segundo).
-2. Añade el bloque `||led:ocultar x 0 y 0||` justo debajo.
-3. ¡Importante! Añade otra **pausa** al final. Si no lo haces, el código volverá al principio tan rápido que no verás el LED apagado.
-
-```blocks
-basic.forever(() => {
-    led.plot(0, 0)
-    basic.pause(1000)
-    led.unplot(0, 0)
-    basic.pause(1000)
+input.onButtonPressed(Button.A, function() { 
+    basic.showIcon(IconNames.Happy)
+    music.play(music.builtinPlayableSoundEffect(soundExpression.happy), music.PlaybackMode.UntilDone)
 })
 ```
 
----
+**Prueba:** Haz clic en el botón **A** del simulador. ¿Suena y brilla? ⭐ ¡Genial\!
 
-## 🎭 Desafío 1: El "Guiño" Robótico
+-----
 
-Ahora que sabes cómo encender puntos específicos, vamos a dibujar algo más complejo.
+## 🚀 Paso 2: Botón B = Cara Triste
 
-**Tu misión:** Haz que la Micro:bit muestre dos "ojos" parpadeando.
-1. Los ojos estarán en las coordenadas `(1, 1)` y `(3, 1)`.
-2. Haz que ambos se enciendan a la vez, esperen 1 segundo, y se apaguen a la vez.
+Ahora haremos lo mismo para el botón derecho, pero con una emoción diferente.
+
+1.  Arrastra otro bloque `||input:al presionar el botón A||`.
+      * *Nota: El bloque se verá gris al principio. Haz clic en la "A" y cámbiala por una **"B"**.*
+2.  Selecciona el icono de la **cara triste** y el sonido **"sad"**.
+
+<!-- end list -->
 
 ```blocks
-basic.forever(() => {
-    led.plot(1, 1)
-    led.plot(3, 1)
-    basic.pause(1000)
-    led.unplot(1, 1)
-    led.unplot(3, 1)
-    basic.pause(1000)
+input.onButtonPressed(Button.B, function() {
+    basic.showIcon(IconNames.Sad)
+    music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone)
 })
 ```
 
----
+-----
 
-## 🔥 Desafío Final: La Cara Sonriente Animada
+## ⚡ Desafío Final: El Emoji Secreto (A+B)
 
-¿Podrías hacer que una cara sonriente completa aparezca y desaparezca?
+Los programadores expertos saben que Micro:bit tiene un "tercer" botón oculto: **¡Presionar A y B al mismo tiempo\!**
 
-**Instrucciones:**
-1. Mantén los ojos en `(1, 1)` y `(3, 1)`.
-2. Añade la nariz en `(2, 2)`.
-3. Dibuja la boca usando los puntos: `(0, 3)`, `(4, 3)`, `(1, 4)`, `(2, 4)` y `(3, 4)`.
-4. ¡Haz que toda la cara parpadee al unísono!
+**Tu misión:**
 
-> **Pista de experto:** Si quieres que la cara parpadee más rápido, cambia los `1000 ms` por `200 ms`. ¡Parecerá una animación de videojuego antiguo!
+1.  Crea un nuevo evento de entrada.
+2.  Configúralo para que sea `||input:A+B||`.
+3.  Elige un icono secreto (un corazón, una calavera o un alien) y un sonido de "misterio".
 
----
+> **Pista:** En el simulador aparecerá un nuevo botón virtual llamado **"A+B"** para que puedas probarlo sin dedos extra.
+
+-----
+
+## 📥 Envía el programa a tu Micro:bit
+
+1.  Conecta tu placa al ordenador con el cable USB.
+2.  Haz clic en el botón **Descargar** 💾.
+3.  Arrastra el archivo `.hex` a la unidad MICROBIT que aparecerá en tu equipo.
+
+-----
