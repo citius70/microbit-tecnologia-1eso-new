@@ -1,5 +1,5 @@
 > Abra esta pagina en [https://citius70.github.io/microbit-tecnologia-1eso-new/](https://citius70.github.io/microbit-tecnologia-1eso-new/)
-
+sd
 ## Usar como extensión
 
 Este repositorio puede ser añadido como una **extensión** en MakeCode.
