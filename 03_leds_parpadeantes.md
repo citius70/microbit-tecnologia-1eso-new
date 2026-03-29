@@ -34,6 +34,8 @@ Vamos a encender el LED de la esquina superior izquierda.
 1. Busca el bloque `||led:graficar x 0 y 0||` dentro de la categoría **LED**.
 2. Arrástralo dentro del bloque `||basic:para siempre||`.
 
+![Esquema de la Matriz LED](imagenes/coordenadas.png)
+
 ```blocks
 basic.forever(() => {
     led.plot(0, 0)
