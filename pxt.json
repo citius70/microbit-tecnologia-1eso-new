@@ -12,7 +12,8 @@
         "README.md",
         "main.py",
         "01_primeros_pasos.md",
-        "02_corazon_palpitante.md"
+        "02_corazon_palpitante.md",
+        "03_leds_parpadeantes.md"
     ],
     "testFiles": [
         "test.ts"
