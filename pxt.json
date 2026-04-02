@@ -16,7 +16,8 @@
         "03_leds_parpadeantes.md",
         "04_botones.md",
         "05_temperatura.md",
-        "06_sensor_luz.md"
+        "06_sensor_luz.md",
+        "07_dado.md"
     ],
     "testFiles": [
         "test.ts"
