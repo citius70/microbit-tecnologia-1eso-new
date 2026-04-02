@@ -20,7 +20,8 @@
         "07_dado.md",
         "08_brujula.md",
         "09_mensajeria.md",
-        "10_piano.md"
+        "10_piano.md",
+        "11_pasos.md"
     ],
     "testFiles": [
         "test.ts"
