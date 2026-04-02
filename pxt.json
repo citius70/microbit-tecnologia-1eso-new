@@ -17,7 +17,9 @@
         "04_botones.md",
         "05_temperatura.md",
         "06_sensor_luz.md",
-        "07_dado.md"
+        "07_dado.md",
+        "08_brujula.md",
+        "09_mensajeria.md"
     ],
     "testFiles": [
         "test.ts"
