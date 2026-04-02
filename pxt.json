@@ -19,7 +19,8 @@
         "06_sensor_luz.md",
         "07_dado.md",
         "08_brujula.md",
-        "09_mensajeria.md"
+        "09_mensajeria.md",
+        "10_piano.md"
     ],
     "testFiles": [
         "test.ts"
