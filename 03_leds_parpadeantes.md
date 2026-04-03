@@ -1,9 +1,3 @@
-¡Claro que sí\! Vamos a unificar todo lo que hemos aprendido: la estructura pedagógica para chicos de 12-13 años, el uso de **rutas relativas** para tus imágenes (`imagenes/`) y el formato limpio de Markdown.
-
-Aquí tienes la versión definitiva para tu archivo `03_leds_parpadeantes.md`:
-
------
-
 # 💡 Luces Parpadeantes: Mi primer Faro Digital
 
 ## El reto de hoy @unplugged
