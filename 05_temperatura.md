@@ -31,7 +31,6 @@ Queremos que la placa nos diga la temperatura todo el tiempo, sin tener que toca
 1.  Ve a la categoría **Básico** y asegúrate de tener el bloque `||basic:para siempre||`.
 2.  Dentro, coloca el bloque `||basic:mostrar número 0||`.
 3.  Busca en **Entrada** el bloque redondo `||input:temperatura (ºC)||` y encájalo sobre el `0`.
-4.  Añade una `||basic:pausa (ms) 2000||` (2 segundos) al final para que nos dé tiempo a leer el número antes de que salga el siguiente.
 
 <!-- end list -->
 
