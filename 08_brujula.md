@@ -52,6 +52,8 @@ El Norte es un poco especial porque está justo en el **0**. Para que nuestra br
 3.  Pregunta: `||logic:si dirección < 45||` **O** `||logic:dirección > 315||`.
 4.  Si es verdad, muestra la letra **"N"**.
 
+![Puntos cardinales](./imagenes/brujula.png)
+
 ---
 
 ## 🚀 Paso 3: Completando el resto de puntos
