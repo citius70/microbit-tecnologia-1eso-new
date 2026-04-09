@@ -1,24 +1,20 @@
-# Mensajería Mágica: Redes  📡
+# Mensajería Mágica: Redes 📡
 
 ## El reto de hoy @unplugged
 
-¿Te imaginas enviar un dibujo por el aire sin usar cables? Hoy vamos a programar tu Micro:bit para que actúe como una **antena de radio**. Aprenderás cómo las máquinas se comunican de forma invisible usando ondas electromagnéticas.
+¿Te imaginas enviar un dibujo por el aire sin usar cables? Hoy vamos a programar tu Micro:bit para que actúe como una **antena de radio**. Aprenderás cómo las máquinas se comunican de forma invisible y cómo controlar cuánto tiempo se ve la información en pantalla.
 
 ### ❓ ¿Cómo viaja la información?
-Antes de programar, imagina que cuando pulsas el **Botón A**:
-1.  **Emisor:** Tu placa convierte la palabra **"mensaje"** en ondas de radio invisibles (como el Wi-Fi o la radio del coche).
-2.  **Aire:** Esas ondas viajan por la clase a la velocidad de la luz.
-3.  **Receptor:** La placa de tu compañero/a "atrapa" esas ondas.
-4.  **Cerebro (Procesador):** El procesador lee el texto y dice: *¿Dice 'mensaje'? ¡Sí! Entonces dibujo el corazón.*
-
-**Misión por parejas:** Uno será el Emisor y otro el Receptor.
+1.  **Emisor:** Tu placa convierte el código **"mensaje1"** en ondas de radio.
+2.  **Aire:** Esas ondas viajan por la clase de forma invisible.
+3.  **Receptor:** La placa de tu compañero/a recibe el texto y dice: *¿Dice 'mensaje1'? ¡Sí! Entonces dibujo el corazón, espero 2 segundos y borro la pantalla.*
 
 ---
 
 ### 🎯 Objetivos de la lección
-* Configurar un **Grupo de Radio** (ID de red única).
-* Enviar y recibir una **Cadena** (la palabra "mensaje").
-* Usar la lógica para reaccionar al texto recibido.
+* Configurar un **Grupo de Radio** único.
+* Enviar la cadena de texto **"mensaje1"**.
+* Usar la lógica para mostrar un icono y luego **borrar la pantalla**.
 
 ### 🛠️ Requisitos
 * **2 placas Micro:bit**.
@@ -31,7 +27,7 @@ Antes de programar, imagina que cuando pulsas el **Botón A**:
 Para que vuestros mensajes no se mezclen con los de otros grupos, debéis elegir vuestra propia "matrícula" de red.
 
 1.  En el bloque `||basic:al iniciar||`, busca en la sección de **Radio**: `||radio:radio establecer grupo [1]||`.
-2.  Elegid un número entre **1 y 255**. ¡Vuestras dos placas deben tener el mismo!
+2.  Elegid un número entre **1 y 255**. ¡Ambas placas deben tener el mismo!
 
 ```blocks
 radio.setGroup(42)
@@ -39,94 +35,58 @@ radio.setGroup(42)
 
 ---
 
-## 🚀 Paso 2: El Emisor (¡Lanza el mensaje!) 🚀
+## 🚀 Paso 2: El Emisor (¡Lanza el código!) 🚀
 
-Vamos a programar el botón para que envíe nuestra palabra clave por el aire.
+Programaremos el botón A para que envíe nuestra señal secreta.
 
 1.  Saca el bloque `||input:al presionar el botón A||`.
 2.  Busca en Radio: `||radio:radio enviar cadena " "||`.
-3.  Escribe dentro la palabra: **"mensaje"**.
-4.  Para confirmar que ha salido, añade: `||basic:mostrar cadena "OK"||`.
+3.  Escribe dentro exactamente: **"mensaje1"**.
+4.  Para saber que se ha enviado, añade: `||basic:mostrar cadena "OK"||`.
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
-    radio.sendString("mensaje")
+    radio.sendString("mensaje1")
     basic.showString("OK")
 })
 ```
 
 ---
 
-## 🚀 Paso 3: El Receptor (¡Atrapa el corazón!) 🎯
+## 🚀 Paso 3: El Receptor (¡Atrapa y limpia!) 🎯
 
-Ahora configuramos la otra placa para que "escuche" y verifique si el mensaje es el correcto.
+Ahora configuramos la recepción. Queremos que el corazón aparezca, pero que desaparezca solo después de un momento.
 
 1.  Busca el bloque: `||radio:al recibir radio (receivedString)||`.
-2.  Dentro, usa un bloque de **Lógica**: `||logic:si [receivedString] = "mensaje" entonces||`.
-3.  Si es cierto, pon: `||basic:mostrar icono (Corazón)||` y un sonido de aviso.
+2.  Usa la lógica: `||logic:si [receivedString] = "mensaje1" entonces||`.
+3.  Si es correcto:
+    * Muestra el icono `||basic:Corazón||`.
+    * Espera con `||basic:pausa (ms) [2000]||`.
+    * Limpia todo con `||basic:borrar la pantalla||`.
 
 ```blocks
 radio.onReceivedString(function (receivedString) {
-    if (receivedString == "mensaje") {
+    if (receivedString == "mensaje1") {
         basic.showIcon(IconNames.Heart)
-        music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.InBackground)
+        basic.pause(2000)
+        basic.clearScreen()
     }
 })
 ```
 
 ---
 
-## 🧪 Desafío: El Código Secreto
+## 🧪 Desafío: El Segundo Código Secretos 🕵️‍♂️
 
-**Misión:** ¿Puedes hacer que tu sistema envíe un mensaje diferente?
+**Misión:** ¿Puedes hacer que tu sistema envíe una cara sonriente usando un código distinto?
 
-1.  Al pulsar el **Botón B**, envía la palabra **"feliz"**.
-2.  Modifica el receptor (añadiendo un `||logic:si no, si||`) para que, si recibe "feliz", muestre una **cara sonriente** `||basic:showIcon(Happy)||`.
+1.  **En el Emisor:** Haz que al pulsar el **Botón B**, se envíe la cadena **"mensaje2"**.
+2.  **En el Receptor:** Añade un bloque `||logic:si no, si||` para que, si la Micro:bit recibe **"mensaje2"**, muestre una **cara sonriente** `||basic:showIcon(Happy)||`.
+3.  **¡No olvides!** Asegúrate de que la cara sonriente también se borre después de 2 segundos.
 
-**Pregunta para pensar:** Si cambias tu número de grupo al **7**, ¿podrás seguir leyendo los mensajes de tus compañeros que se quedaron en el grupo **42**?
+**Pregunta para pensar:** Si escribes "Mensaje1" (con mayúscula) en el emisor y "mensaje1" (minúscula) en el receptor, ¿crees que funcionará? ¡Haz la prueba!
 
 ---
 
 ## 📥 Envía el programa
-
-¡Listo! Dale a **Descargar** en ambas placas. ¡Vuestra red inalámbrica ya es oficial!
-
----
-
-/**
-* Utilice este archivo para definir funciones y bloques personalizados.
-* Lea más en https://makecode.microbit.org/blocks/custom
-*/
-
-enum MyEnum {
-    //% block="one"
-    One,
-    //% block="two"
-    Two
-}
-
-/**
- * Custom blocks
- */
-//% weight=100 color=#0fbc11 icon=""
-namespace custom {
-    /**
-     * TODO: describe your function here
-     * @param n describe parameter here, eg: 5
-     * @param s describe parameter here, eg: "Hello"
-     * @param e describe parameter here
-     */
-    //% block
-    export function foo(n: number, s: string, e: MyEnum): void {
-        // Add code here
-    }
-
-    /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
-     */
-    //% block
-    export function fib(value: number): number {
-        return value <= 1 ? value : fib(value -1) + fib(value - 2);
-    }
-}
+¡Listo! Descarga el código en ambas placas y empezad a emitir. ¡Vuestra red inalámbrica ya está operativa!
